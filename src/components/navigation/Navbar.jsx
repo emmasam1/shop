@@ -12,7 +12,7 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
 
   const navLinks = [
-    { name: "Perfumes", href: "#perfumes" },
+    { name: "Perfumes", href: "/" },
     { name: "Bags", href: "#bags" },
     { name: "Towels", href: "#towels" },
     { name: "More", href: "#more" },
