@@ -110,7 +110,7 @@ const Home = () => {
         </div>
 
         <div
-          className="relative h-[600px] flex items-center justify-center bg-cover bg-center overflow-hidden my-10"
+          className="relative h-[600px] flex items-center justify-center bg-cover bg-center overflow-hidden my-10 rounded-lg"
           style={{ backgroundImage: `url(${bg_3})` }}
         >
           <div className="absolute inset-0 bg-[#00000073] bg-opacity-50"></div>
