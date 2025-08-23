@@ -7,15 +7,16 @@ import {
 } from "@ant-design/icons";
 import logo from "../../assets/logo.png";
 import { Sling as Hamburger } from "hamburger-react";
+import { Link } from "react-router"; // ✅ import Link
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
 
   const navLinks = [
-    { name: "Perfumes", href: "/" },
-    { name: "Bags", href: "#bags" },
-    { name: "Towels", href: "#towels" },
-    { name: "More", href: "#more" },
+    { name: "Perfumes", path: "/" },
+    { name: "Bags", path: "/bags" },
+    { name: "Towels", path: "/towels" },
+    { name: "More", path: "/more" },
   ];
 
   return (
@@ -23,18 +24,20 @@ const Navbar = () => {
       {/* Container */}
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <img src={logo} alt="Logo" className="w-40" />
+        <Link to="/">
+          <img src={logo} alt="Logo" className="w-40" />
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.path}
               className="text-[#CDA434] hover:text-orange-200 transition-colors"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -45,7 +48,7 @@ const Navbar = () => {
           <UserOutlined className="text-xl cursor-pointer hover:text-purple-600" />
 
           {/* Mobile Menu Button */}
-           <div className="md:hidden relative z-[60]">
+          <div className="md:hidden relative z-[60]">
             <Hamburger
               toggled={isOpen}
               toggle={setOpen}
@@ -71,22 +74,24 @@ const Navbar = () => {
 
             {/* Slide-in Menu */}
             <motion.div
-              className="fixed top-0 left-0 w-1/2 h-full bg-[#20202055] z-50 flex flex-col p-6 space-y-6"
+              className="fixed top-0 left-0 w-1/2 h-full bg-[#202020] z-50 flex flex-col p-6 space-y-6"
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.3 }}
             >
-              <img src={logo} alt="Logo" className="w-40" />
+              <Link to="/" onClick={() => setOpen(false)}>
+                <img src={logo} alt="Logo" className="w-40" />
+              </Link>
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.path}
                   className="text-[#CDA434] hover:text-orange-200 text-lg"
                   onClick={() => setOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </motion.div>
           </>

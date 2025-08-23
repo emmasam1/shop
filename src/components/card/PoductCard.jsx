@@ -22,14 +22,20 @@ const ProductCard = ({ title, oldPrice, newPrice, image, description, size }) =>
 
   return (
     <Card
-    className="myBorder"
+      className="myBorder"
       hoverable
       style={{
         width: "100%",
         backgroundColor: "#2E302F",
         borderRadius: "10px",
       }}
-      cover={<img alt={title} src={image} className="h-80 object-cover rounded-t-md" />}
+      cover={
+        <img
+          alt={title}
+          src={image}
+          className="h-80 object-cover rounded-t-md"
+        />
+      }
     >
       <Meta title={<span className="text-white">{title}</span>} />
 
@@ -43,16 +49,16 @@ const ProductCard = ({ title, oldPrice, newPrice, image, description, size }) =>
       <div className="flex space-x-4 mt-4">
         <RiWhatsappFill
           size={25}
-          className="hover:scale-110 hover:text-green-500 cursor-pointer transition-transform"
+          className="text-green-500 hover:scale-110 cursor-pointer transition-transform"
           onClick={handleWhatsAppClick}
         />
         <FaInstagram
           size={25}
-          className="hover:scale-110 hover:text-pink-500 cursor-pointer transition-transform"
+          className="text-pink-500 hover:scale-110 cursor-pointer transition-transform"
         />
         <FaFacebook
           size={25}
-          className="hover:scale-110 hover:text-blue-900 cursor-pointer transition-transform"
+          className="text-blue-600 hover:scale-110 cursor-pointer transition-transform"
         />
       </div>
     </Card>
