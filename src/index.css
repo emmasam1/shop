@@ -8,6 +8,10 @@ body{
   border: 0.1px solid #cda43465 !important;
 }
 
+.heading{
+   font-family: "Montserrat", sans-serif;
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
